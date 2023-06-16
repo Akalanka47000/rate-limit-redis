@@ -116,8 +116,7 @@ class RedisStore implements Store {
     try {
       return await evalCommand();
     } catch (err) {
-      // todo distinguish different error types?
-      this.loadedScriptSha1 = await this.loadScript();
+      this.loadedScriptSha1 = this.loadScript();
       return evalCommand();
     }
   }
